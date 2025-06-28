@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Chef Saludable para tu Mascota - Guía Completa de Recetas Caseras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5cb85c; /* Green for healthy */
+            --secondary-color: #f0ad4e; /* Orange for warmth */
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.6em;
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .product-description img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .product-description p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .nutrition-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nutrition-info ul li {
+            background-color: var(--light-bg);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1.05em;
+        }
+
+        .nutrition-info ul li strong {
+            color: var(--primary-color);
+        }
+
+        .toxic-foods {
+            background-color: #f8d7da; /* Light red for warning */
+            border-left-color: #dc3545; /* Red for warning */
+            color: #721c24; /* Dark red text */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .toxic-foods h3 {
+            color: #dc3545;
+            margin-top: 0;
+        }
+
+        .toxic-foods ul {
+            list-style: disc;
+            padding-left: 25px;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .recipe-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .recipe-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .recipe-card p {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .recipe-card ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .recipe-card ol {
+            padding-left: 20px;
+            font-size: 0.9em;
+        }
+        .recipe-card .details {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: auto; /* Pushes details to the bottom */
+        }
+        .details span {
+            margin-right: 15px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #e09430; /* Darker orange */
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+            .container {
+                margin: 20px auto;
+            }
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>El Chef Saludable para tu Mascota</h1>
+        <p>Guía Completa de Recetas Caseras Nutritivas</p>
+        <p>Alimenta con Amor y Conocimiento</p>
+    </header>
+
+    <div class="container">
+
+        <section class="product-description">
+            <h2>Descubre el Poder de la Alimentación Casera</h2>
+            <img src="https://i.ibb.co/Xz3WwJt/ebook-cover.png" alt="Portada del Ebook El Chef Saludable para tu Mascota">
+            <p>¿Alguna vez te has preguntado qué come realmente tu mejor amigo peludo? ¿Sueñas con ofrecerle una dieta nutritiva y llena de amor, pero no sabes por dónde empezar? Con <strong>"El Chef Saludable para tu Mascota: Guía Completa de Recetas Caseras Nutritivas"</strong>, transformarás tu cocina en el restaurante favorito de tu perro o gato, garantizando una vida más larga, feliz y llena de vitalidad.</p>
+            <p>Este ebook, diseñado para dueños comprometidos como tú, va más allá de un simple recetario. Es una <strong>guía integral y profesional</strong> que te empoderará con el conocimiento y las herramientas necesarias para cocinar con confianza.</p>
+            <a href="#call-to-action" class="btn-primary">¡Consigue tu Ebook Ahora!</a>
+        </section>
+
+        <section class="nutrition-info">
+            <h2>Fundamentos de la Nutrición para Mascotas</h2>
+            <p>Comprender los nutrientes esenciales es el primer paso para cocinar de forma saludable para tu mascota. ¡Aquí te lo explicamos de forma sencilla!</p>
+
+            <h3>Macronutrientes Esenciales</h3>
+            <ul>
+                <li><strong>Proteínas:</strong> Imprescindibles para el desarrollo y reparación de músculos y tejidos. Fuentes incluyen carnes magras (pollo, pavo, res), pescado, y huevos.</li>
+                <li><strong>Grasas:</strong> Fuentes concentradas de energía y vitales para la absorción de vitaminas liposolubles (A, D, E, K). Incluyen aceites saludables (pescado, lino) y las grasas naturales de la carne.</li>
+                <li><strong>Carbohidratos:</strong> Proporcionan energía y fibra. Presentes en vegetales (calabaza, zanahoria), frutas y granos integrales (arroz integral, avena).</li>
+            </ul>
+
+            <h3>Micronutrientes Clave</h3>
+            <ul>
+                <li><strong>Vitaminas:</strong> Desde la Vitamina A para la visión hasta el Complejo B para el metabolismo energético. Cada vitamina tiene un papel crucial en la salud general.</li>
+                <li><strong>Minerales:</strong> Calcio y fósforo para huesos fuertes, potasio para el equilibrio de fluidos, hierro para la sangre, y muchos más que sustentan las funciones corporales.</li>
+                <li><strong>Agua:</strong> Aunque a menudo se olvida, el agua es el nutriente más crítico para todas las funciones biológicas.</li>
+            </ul>
+
+            <div class="toxic-foods">
+                <h3>¡Atención! Ingredientes Prohibidos y Tóxicos</h3>
+                <p>Es vital conocer y evitar estos alimentos que son peligrosos para perros y gatos:</p>
+                <ul>
+                    <li>**Chocolate:** Contiene teobromina, tóxica para las mascotas.</li>
+                    <li>**Aguacate:** Contiene persina, que puede causar vómitos y diarrea.</li>
+                    <li>**Uvas y Pasas:** Pueden causar insuficiencia renal aguda.</li>
+                    <li>**Cebolla, Ajo y Puerro:** Causan daño a los glóbulos rojos.</li>
+                    <li>**Xilitol (edulcorante):** Presente en muchos productos "sin azúcar", es altamente tóxico y puede causar hipoglucemia severa e insuficiencia hepática.</li>
+                    <li>**Huesos Cocidos:** Se astillan fácilmente y pueden causar obstrucciones o perforaciones.</li>
+                    <li>**Alcohol y Cafeína:** Muy peligrosos y pueden ser fatales.</li>
+                    <li>**Nueces de Macadamia:** Pueden causar debilidad, temblores y vómitos.</li>
+                    <li>**Levadura de Pan:** Causa hinchazón y puede producir alcohol.</li>
+                </ul>
+                <p><strong>Siempre consulta con un veterinario o nutricionista veterinario antes de realizar cambios drásticos en la dieta de tu mascota.</strong></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Planificación de Dietas Caseras Equilibradas</h2>
+            <p>Crear una dieta equilibrada requiere considerar las necesidades individuales de tu mascota.</p>
+            <h3>Calculando las Necesidades Calóricas</h3>
+            <p>La cantidad de comida que necesita tu mascota depende de su edad, tamaño, nivel de actividad y condición corporal. Un veterinario puede ayudarte a determinar las calorías exactas, pero como regla general:</p>
+            <ul>
+                <li>**Cachorros y gatitos:** Necesitan más calorías para el crecimiento.</li>
+                <li>**Adultos activos:** Requieren más energía que los adultos sedentarios.</li>
+                <li>**Mascotas mayores:** A menudo necesitan menos calorías para evitar el aumento de peso.</li>
+            </ul>
+
+            <h3>Proporciones Ideales</h3>
+            <p>Aunque las proporciones pueden variar, una guía general para una dieta casera equilibrada es:</p>
+            <ul>
+                <li>**Para Perros:** ~50-60% proteína animal, ~20-30% carbohidratos complejos (vegetales/granos), ~10-20% grasas saludables y suplementos.</li>
+                <li>**Para Gatos:** ~70-80% proteína animal, ~10-15% grasas saludables, ~5-10% carbohidratos complejos (vegetales) y suplementos. Los gatos son carnívoros estrictos y requieren taurina.</li>
+            </ul>
+
+            <h3>Suplementación Inteligente</h3>
+            <p>Las dietas caseras a menudo requieren suplementos para asegurar un equilibrio completo de vitaminas y minerales, especialmente calcio y fósforo. Tu veterinario o nutricionista veterinario te indicará cuáles son los adecuados para tu mascota.</p>
+        </section>
+
+        <section>
+            <h2>Recetas Saludables para Perros</h2>
+            <p>¡Prepara platillos deliciosos y nutritivos para tu compañero canino!</p>
+
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Estofado+Perro" alt="Estofado de Pollo y Calabaza">
+                    <div class="recipe-card-content">
+                        <h4>Estofado de Pollo y Calabaza</h4>
+                        <div class="details">
+                            <span>**Perros:** Adultos</span>
+                            <span>**Dificultad:** Fácil</span>
+                        </div>
+                        <p>Un estofado reconfortante y lleno de vitaminas para la digestión y energía.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>500g pechuga de pollo (sin piel ni hueso), cocida y desmenuzada</li>
+                            <li>200g calabaza, en cubos pequeños y cocida</li>
+                            <li>100g zanahorias, ralladas</li>
+                            <li>50g guisantes (arvejas) congelados</li>
+                            <li>1 taza de arroz integral cocido</li>
+                            <li>2 tazas de caldo de pollo bajo en sodio (casero o sin sal)</li>
+                            <li>1 cucharada de aceite de oliva</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>Calienta el aceite en una olla grande.</li>
+                            <li>Agrega las zanahorias y saltea por 5 minutos.</li>
+                            <li>Incorpora el pollo desmenuzado, la calabaza cocida, los guisantes y el arroz integral.</li>
+                            <li>Vierte el caldo de pollo y cocina a fuego lento por 10-15 minutos, o hasta que todo esté bien mezclado y caliente.</li>
+                            <li>Deja enfriar completamente antes de servir.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Albóndigas+Perro" alt="Albóndigas de Res con Espinacas">
+                    <div class="recipe-card-content">
+                        <h4>Albóndigas de Res con Espinacas</h4>
+                        <div class="details">
+                            <span>**Perros:** Adultos</span>
+                            <span>**Dificultad:** Media</span>
+                        </div>
+                        <p>Una opción rica en hierro y proteína, perfecta para la energía diaria.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>500g carne molida de res (magra)</li>
+                            <li>1 huevo grande</li>
+                            <li>1/2 taza de espinacas picadas finamente</li>
+                            <li>1/4 taza de avena en hojuelas (no instantánea)</li>
+                            <li>1 cucharada de perejil fresco picado (opcional, para sabor)</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>Precalienta el horno a 180°C (350°F).</li>
+                            <li>En un bol grande, mezcla la carne molida, el huevo, las espinacas, la avena y el perejil. Amasa bien hasta que todos los ingredientes estén integrados.</li>
+                            <li>Forma pequeñas albóndigas del tamaño de un bocado para tu perro.</li>
+                            <li>Coloca las albóndigas en una bandeja para hornear forrada con papel pergamino.</li>
+                            <li>Hornea durante 20-25 minutos, o hasta que estén bien cocidas y doradas.</li>
+                            <li>Deja enfriar completamente antes de servir.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                 <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Pescado+Perro" alt="Pescado al Vapor con Batata">
+                    <div class="recipe-card-content">
+                        <h4>Pescado al Vapor con Batata</h4>
+                        <div class="details">
+                            <span>**Perros:** Todas las edades</span>
+                            <span>**Dificultad:** Fácil</span>
+                        </div>
+                        <p>Ideal para perros con estómagos sensibles, rico en Omega-3.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>300g filete de pescado blanco (bacalao, merluza), sin espinas ni piel</li>
+                            <li>1 batata (boniato) mediana, pelada y cortada en cubos</li>
+                            <li>1 taza de brócoli floretes pequeños</li>
+                            <li>Una pizca de aceite de salmón o aceite de coco (después de cocinar)</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>Cocina al vapor la batata hasta que esté muy blanda (unos 15-20 minutos).</li>
+                            <li>Mientras tanto, cocina al vapor el pescado y el brócoli hasta que estén bien cocidos (unos 8-10 minutos).</li>
+                            <li>Una vez cocidos, tritura ligeramente la batata.</li>
+                            <li>Desmenuza el pescado y pica finamente el brócoli.</li>
+                            <li>Mezcla todo. Una vez frío, puedes añadir una pizca de aceite de salmón.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Recetas Saludables para Gatos</h2>
+            <p>¡Recetas irresistibles y nutricionalmente diseñadas para tu felino!</p>
+
+            <div class="recipe-grid">
+                <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Paté+Gato" alt="Paté de Atún y Hígado de Pollo">
+                    <div class="recipe-card-content">
+                        <h4>Paté de Atún y Hígado de Pollo</h4>
+                        <div class="details">
+                            <span>**Gatos:** Adultos</span>
+                            <span>**Dificultad:** Fácil</span>
+                        </div>
+                        <p>Un paté rico en taurina y nutrientes esenciales para gatos.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>1 lata (140g) de atún en agua (sin sal añadida), escurrido</li>
+                            <li>50g hígado de pollo, cocido y picado</li>
+                            <li>1/4 taza de caldo de pollo bajo en sodio (sin cebolla/ajo)</li>
+                            <li>1 cucharadita de aceite de pescado (rico en Omega-3)</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>En un procesador de alimentos o licuadora, combina el atún escurrido y el hígado de pollo cocido.</li>
+                            <li>Añade el caldo de pollo gradualmente mientras procesas hasta obtener una consistencia suave de paté.</li>
+                            <li>Transfiere a un recipiente, mezcla el aceite de pescado.</li>
+                            <li>Sirve una pequeña porción y refrigera el resto en un recipiente hermético.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Bocaditos+Gato" alt="Bocaditos de Pavo Caseros">
+                    <div class="recipe-card-content">
+                        <h4>Bocaditos de Pavo Caseros</h4>
+                        <div class="details">
+                            <span>**Gatos:** Adultos y cachorros</span>
+                            <span>**Dificultad:** Fácil</span>
+                        </div>
+                        <p>Golpecitos de proteína ideales para premios o para añadir a su dieta.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>200g pechuga de pavo (sin piel), cocida y desmenuzada finamente</li>
+                            <li>1 cucharada de queso cottage bajo en grasa (opcional, para unir)</li>
+                            <li>Una pizca de hierba gatera seca (opcional, para atraer)</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>En un bol, mezcla el pavo desmenuzado con el queso cottage (si lo usas) hasta formar una pasta.</li>
+                            <li>Si la usas, añade la hierba gatera y mezcla bien.</li>
+                            <li>Forma pequeñas bolitas o "bocaditos" del tamaño de un guisante.</li>
+                            <li>Puedes refrigerarlos para que se endurezcan un poco.</li>
+                            <li>Ofrece como premio o mezcla con su comida regular. Guarda refrigerado.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                 <div class="recipe-card">
+                    <img src="https://via.placeholder.com/400x200?text=Guiso+Gato" alt="Guiso de Pollo y Zanahoria">
+                    <div class="recipe-card-content">
+                        <h4>Guiso de Pollo y Zanahoria</h4>
+                        <div class="details">
+                            <span>**Gatos:** Adultos</span>
+                            <span>**Dificultad:** Fácil</span>
+                        </div>
+                        <p>Un guiso suave y fácil de digerir, con la proteína principal que aman los gatos.</p>
+                        <h5>Ingredientes:</h5>
+                        <ul>
+                            <li>300g muslo o pechuga de pollo (sin piel ni hueso), cocido y picado en trozos pequeños</li>
+                            <li>50g zanahorias, cocidas y trituradas (una pequeña cantidad para fibra)</li>
+                            <li>1/2 taza de caldo de pollo sin sal (sin cebolla/ajo)</li>
+                            <li>Suplemento de taurina (consultar con veterinario la dosis)</li>
+                        </ul>
+                        <h5>Instrucciones:</h5>
+                        <ol>
+                            <li>En un tazón, combina el pollo cocido y picado con la zanahoria triturada.</li>
+                            <li>Añade el caldo de pollo y mezcla bien para crear una consistencia de guiso.</li>
+                            <li>Incorpora el suplemento de taurina según las indicaciones del veterinario.</li>
+                            <li>Sirve a temperatura ambiente. Puedes guardar las porciones restantes en el refrigerador.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="call-to-action">
+            <h2>¡Tu Mascota se Merece lo Mejor!</h2>
+            <p>No esperes más para transformar la salud y la felicidad de tu compañero peludo. Con <strong>"El Chef Saludable para tu Mascota"</strong>, tendrás en tus manos la guía más completa para una alimentación casera, nutritiva y profesional.</p>
+            <p><strong>Aprende a:</strong></p>
+            <ul>
+                <li>Entender las necesidades nutricionales únicas de tu mascota.</li>
+                <li>Preparar comidas equilibradas y deliciosas con ingredientes frescos.</li>
+                <li>Evitar los alimentos tóxicos y peligrosos.</li>
+                <li>Mejorar la vitalidad, el pelaje y la energía de tu amigo peludo.</li>
+            </ul>
+            <p><strong>¡Haz clic abajo para obtener tu copia del ebook y comienza hoy mismo el camino hacia una vida más sana y feliz para tu mascota!</strong></p>
+            <a href="#" class="btn-primary" target="_blank">¡Descargar Ebook Ahora!</a> </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 El Chef Saludable para tu Mascota. Todos los derechos reservados.</p>
+        <p>Recuerda siempre consultar a un veterinario o nutricionista veterinario antes de cambiar la dieta de tu mascota.</p>
+    </footer>
+
+</body>
+</html>
